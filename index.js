@@ -31,3 +31,6 @@ app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors())
 
 app.use('/posts', postsRoutes)
+app.get('/', (req, res) => {
+  res.send('Welcome to Memories API')
+})
