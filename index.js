@@ -6,6 +6,18 @@ import dotenv from 'dotenv'
 import postsRoutes from './routes/PostRouter.js'
 dotenv.config()
 
+const app = express()
+
+app.use(bodyParser.json({ limit: '30mb', extended: true }))
+app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
+app.use(cors())
+
+app.use('/posts', postsRoutes)
+
+app.get('/', (req, res) => {
+  res.send('Welcome to Memories API')
+})
+
 const PORT = process.env.PORT || 5000
 
 mongoose
@@ -23,14 +35,3 @@ mongoose
   .catch((error) => {
     console.log(error)
   })
-
-const app = express()
-
-app.use(bodyParser.json({ limit: '30mb', extended: true }))
-app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
-app.use(cors())
-
-app.use('/posts', postsRoutes)
-app.get('/', (req, res) => {
-  res.send('Welcome to Memories API')
-})
