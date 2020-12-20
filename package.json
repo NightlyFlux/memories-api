@@ -1,13 +1,13 @@
 {
-  "name": "server",
+  "name": "memories-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "API for the memories website",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "nodemon index.js"
   },
-  "author": "",
+  "author": "NightlyFlux",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
